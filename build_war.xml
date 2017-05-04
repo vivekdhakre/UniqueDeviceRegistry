@@ -1,0 +1,41 @@
+<project name="dr" default="war">
+	<property name="classes.build.dir" value="build"/>
+	<property name="build.dir" value="/home/apache-tomcat-8.0.35" />
+	<property name="catalina.home" value="/home/apache-tomcat-8.0.35"/>
+	<path id="classpath">
+		<fileset dir="web/WEB-INF/lib">
+			<include name="*.jar"/>
+		</fileset>
+	    <fileset dir="${catalina.home}/lib/">
+                <include name="*.jar"/>
+	    </fileset>
+	</path>
+	
+	<!-- Clean -->
+	<target name="war-clean">
+		<delete file="${build.dir}/webapps/${ant.project.name}.war" quiet="true" />		
+	</target>
+	
+	<!-- Complie -->
+	<target name="war-compile">
+		<mkdir dir="${classes.build.dir}/classes/"/>
+		<javac srcdir="src" destdir="${classes.build.dir}/classes/" classpathref="classpath" encoding="iso-8859-1" debug="on" debuglevel="lines,vars,source"/>
+		<copy todir="${classes.build.dir}/classes/">
+			<fileset dir="src" excludes="**/*.java"/>
+			<fileset dir="resources" includes="**/*.xml,*.properties,**/*.txt,**/*.ico" />
+		</copy>
+	</target>
+	
+	<!-- Build -->
+	<target name="war" depends="war-clean,war-compile" >
+		<war destfile="${build.dir}/webapps/${ant.project.name}.war" webxml="web/WEB-INF/web.xml">
+			<classes dir="${classes.build.dir}/classes/"></classes>
+			<fileset dir="web">
+				<include name="**/*"/>
+				<exclude  name="**/josso-*.jar"/>
+			</fileset>
+		</war>
+	</target>
+	
+	
+</project>

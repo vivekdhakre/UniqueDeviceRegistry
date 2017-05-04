@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+"-//Hibernate/Hibernate Configuration DTD//EN"
+"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+	<session-factory>
+<!-- 		<property name="hibernate.connection.driver_class">org.postgresql.Driver</property> -->
+<!-- 		<property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/location</property> -->
+		
+<!-- 		<property name="hibernate.connection.username">postgres</property> -->
+<!-- 		<property name="hibernate.connection.password">root</property> -->
+
+		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="hibernate.connection.url">jdbc:mysql://139.162.13.39:3306/udreg</property>
+		
+		<property name="hibernate.connection.username">root</property>
+		<property name="hibernate.connection.password">ahoy#675#</property>
+<!-- 		<property name="hibernate.connection.password">wvMTG!5MwD</property> -->
+ 
+		<!--  <property name="hibernate.connection.pool_size">10</property>  -->
+		<property name="hibernate.show_sql">false</property>
+		<property name="current_session_context_class">thread</property>
+		<property name="cache.provider_class">org.hibernate.cache.NoCacheProvider</property>       
+		<property name="hibernate.c3p0.min_size">5</property>
+		<property name="hibernate.c3p0.max_size">20</property>
+		<property name="hibernate.c3p0.timeout">300</property>
+		<property name="hibernate.c3p0.max_statements">50</property>
+		<property name="hibernate.c3p0.idle_test_period">3000</property>
+		<property name="hibernate.c3p0.preferredTestQuery">select 1;</property>
+		<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+		<property name="hibernate.jdbc.batch_size">10</property>
+		
+		<!-- 
+		<property name="hibernate.dbcp.initialSize">8</property>
+		<property name="hibernate.dbcp.maxActive">20</property>
+		<property name="hibernate.dbcp.maxIdle">20</property>
+		<property name="hibernate.dbcp.minIdle">0</property>
+		-->
+		
+		<mapping class="com.ahoy.udr.domain.DeviceDo" />
+		<mapping class="com.ahoy.udr.domain.SecureDo" />
+		
+	</session-factory>
+	
+</hibernate-configuration>

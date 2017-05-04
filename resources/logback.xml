@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+<property name="USER_HOME" value="/home/applogs/device_registry" />
+
+  <appender name="file" class="ch.qos.logback.core.rolling.RollingFileAppender">
+   <append>true</append>
+    <File>${USER_HOME}/dr.log</File>
+    <encoder>
+      <pattern>%d{yyyy-MM-dd HH:mm:ss} - [%-5level] - %msg%n</pattern>
+    </encoder>
+    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+      <fileNamePattern>${USER_HOME}/dr.%d{yyyy-MM-dd}.log.gz</fileNamePattern>
+    </rollingPolicy>
+  </appender>
+
+<!--   <appender name="console" class="ch.qos.logback.core.ConsoleAppender"> -->
+<!--     <encoder> -->
+<!--      <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36}  -  %msg%n</pattern> -->
+<!--     </encoder> -->
+<!--   </appender> -->
+
+	<root level="INFO">
+	    <appender-ref ref="file"/>
+	<!--     <appender-ref ref="console"/> -->
+	</root>
+	
+</configuration>

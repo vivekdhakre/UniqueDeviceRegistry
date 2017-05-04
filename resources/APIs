@@ -1,0 +1,13 @@
+// Mobile App will hit this API at the time of App opening (after App installation) 
+// RegisterDevice.java
+		http://uahoy.com/dr/api/v1/register?
+		did=<DEVICE_ID>
+		&platform=<PLATFORM>
+		&src=<PACKAGE_NAME>
+		&testmode=<TEST_MODE>
+		&apikey=<API_KEY>
+		&referrer=<U_AD_RELATED_REFERRER>
+		
+// U-Ad will hit this API after Ahoy App Ad Click - PlayStoreRedirect.java
+		http://uahoy.com/dr/redirect?i=<IDENTIFIER>(APP PACKAGE NAME)
+		&aff_sub=<U_AD_RELATED_REFERRER>

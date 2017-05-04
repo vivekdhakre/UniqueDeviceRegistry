@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app  version="3.0"
+    xmlns="http://java.sun.com/xml/ns/javaee" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+    http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+	
+	<servlet>
+			<servlet-name>Register</servlet-name>
+			<servlet-class>com.ahoy.udr.api.RegisterDevice</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+			<servlet-name>Register</servlet-name>
+			<url-pattern>/register</url-pattern>
+	</servlet-mapping>
+	
+	
+	<servlet>
+			<servlet-name>Redirect</servlet-name>
+			<servlet-class>com.ahoy.udr.api.PlayStoreRedirect</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+			<servlet-name>Redirect</servlet-name>
+			<url-pattern>/redirect</url-pattern>
+	</servlet-mapping>
+	
+	
+	<servlet>
+		<servlet-name>SecureKeySave</servlet-name>
+		<servlet-class>com.ahoy.udr.api.SecureKeySave</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>SecureKeySave</servlet-name>
+		<url-pattern>/secure</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+			<servlet-name>Welcome</servlet-name>
+			<jsp-file>/login.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+			<servlet-name>Welcome</servlet-name>
+			<url-pattern>/welcome</url-pattern>
+	</servlet-mapping>
+	
+	<welcome-file-list>
+  		<welcome-file>welcome</welcome-file>
+  	</welcome-file-list>
+  	
+</web-app>
